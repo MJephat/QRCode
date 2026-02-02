@@ -83,6 +83,8 @@ const styles = {
   button: {
     padding: "10px 22px",
     fontSize: 16,
-    cursor: "pointer"
+    cursor: "pointer",
+    background: "#11ac09",
+    color: "#fff",
   }
 };

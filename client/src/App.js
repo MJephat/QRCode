@@ -1,22 +1,45 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./Components/Layout.js";
-import Settings from "./Pages/Settings.js";
-import QRCodePage from "./Pages/QRCodepage.js";
-import Dashboard from "./Pages/DashBoard.js";
+import { AuthProvider } from "./Contexts/AuthContext";
+import Layout from "./Components/Layout";
+import Settings from "./Pages/Settings";
+import QRCodePage from "./Pages/QRCodepage";
+import Dashboard from "./Pages/DashBoard";
+import ProtectedRoute from "./Contexts/ProtectedRoute";
+import Login from "./Auth/Login";
+import Register from "./Auth/Register";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* All routes use the Layout */}
-        <Route path="/" element={<Layout />}>
-          <Route index element={<QRCodePage />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="users" element={<h1>Users Page - To be implemented</h1>} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<QRCodePage />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+
+            {/* protected */}
+            <Route
+              path="dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="settings"
+              element={
+                <ProtectedRoute>
+                  <Settings />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="users" element={<h1>Users Page</h1>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
