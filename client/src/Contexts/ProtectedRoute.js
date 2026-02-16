@@ -5,7 +5,7 @@ export default function ProtectedRoute({ children }) {
   const { user } = useAuth();
 
   if (!user) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="https://qrclient.onrender.com/login" replace />;
   }
 
   return children;

@@ -16,7 +16,7 @@ export default function Login() {
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
-        <h2>Welcome to MGC ADMIN</h2>
+        <h2>Welcome  ADMIN</h2>
         <p className="subtitle">Sign in to continue</p>
 
         <input
