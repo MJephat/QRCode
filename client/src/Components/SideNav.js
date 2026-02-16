@@ -6,7 +6,7 @@ export default function SideNav() {
 
   return (
     <aside className="side-nav">
-      <h2 className="logo">MGC Kitty Classic</h2>
+      <h2 className="logo">Challenge Me</h2>
 
       <nav>
         <NavLink to="/">QR Code</NavLink>
