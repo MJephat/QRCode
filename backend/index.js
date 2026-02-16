@@ -33,8 +33,13 @@ async function getAccessToken() {
 // success screen route
 app.get("/success", (req, res) => {
   const now = new Date();
-  const hours = now.getHours(); // 0-23
-  const period = hours < 12 ? "morning" : "afternoon";
+
+  // Convert to Kenya local time (UTC +3)
+  let kenyaHour = now.getUTCHours() + 3;
+  if (kenyaHour >= 24) kenyaHour -= 24; // wrap around 24h
+
+  // Determine period
+  const period = kenyaHour >= 5 && kenyaHour < 18 ? "morning" : "evening";
 
   res.send(`
     <html>
@@ -45,6 +50,7 @@ app.get("/success", (req, res) => {
     </html>
   `);
 });
+
 
 
 app.get("/pay/1100", (req, res) => {
