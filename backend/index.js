@@ -30,6 +30,21 @@ async function getAccessToken() {
 
   return response.data.access_token;
 }
+// success screen route
+app.get("/success", (req, res) => {
+  const now = new Date();
+  const hours = now.getHours(); // 0-23
+  const period = hours < 12 ? "morning" : "afternoon";
+
+  res.send(`
+    <html>
+      <body style="font-family:sans-serif;text-align:center;padding:40px">
+        <h2>✅ Request Sent</h2>
+        <p style="color:#0f9d58;font-weight:600;">You have successfully entered the ${period} bet.</p>
+      </body>
+    </html>
+  `);
+});
 
 
 app.get("/pay/1100", (req, res) => {
@@ -187,10 +202,8 @@ app.post("/pay/1100", async (req, res) => {
       }
     );
 
-    res.json({
-      success: true,
-      data: response.data
-    });
+ res.redirect("/success");
+
   } catch (error) {
     console.error(error.response?.data || error.message);
     res.status(500).json({

@@ -35,7 +35,16 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="users" element={<h1>Users Page</h1>} />
+           <Route
+              path="users"
+              element={
+                <>
+                  <h1>Users Page</h1>
+                  <p>This page is under development.</p>
+                </>
+              }
+            />
+
           </Route>
         </Routes>
       </BrowserRouter>

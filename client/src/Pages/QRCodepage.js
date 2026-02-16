@@ -16,8 +16,8 @@ export default function QRCodePage() {
     try {
       setLoading(true);
       setMessage("");
-      await axios.post("https://qrbackend-zuxt.onrender.com/pay/1100", {
-      // await axios.post("https://2718-2c0f-2f00-56-f940-61b0-c123-f56-f087.ngrok-free.app/pay/1100", {
+       await axios.post("https://qrbackend-zuxt.onrender.com/pay/1100", {
+      //  await axios.post("https://2718-2c0f-2f00-56-f940-61b0-c123-f56-f087.ngrok-free.app/pay/1100", {
         phone
       });
 
@@ -35,8 +35,8 @@ export default function QRCodePage() {
 
       {/* QR Code */}
       <QRCodeCanvas
-      value="https://qrbackend-zuxt.onrender.com/pay/1100"
-        //value="https://2718-2c0f-2f00-56-f940-61b0-c123-f56-f087.ngrok-free.app/pay/1100"
+       value="https://qrbackend-zuxt.onrender.com/pay/1100"
+      //  value="https://2718-2c0f-2f00-56-f940-61b0-c123-f56-f087.ngrok-free.app/pay/1100"
         size={220}
       />
 
