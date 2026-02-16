@@ -17,7 +17,7 @@ export default function QRCodePage() {
       setLoading(true);
       setMessage("");
 
-      await axios.post("https://eeebcd0b1805.ngrok-free.app/pay/1100", {
+      await axios.post("https://2718-2c0f-2f00-56-f940-61b0-c123-f56-f087.ngrok-free.app/pay/1100", {
         phone
       });
 
@@ -31,11 +31,11 @@ export default function QRCodePage() {
 
   return (
     <div style={styles.container}>
-      <h2>Pay KES 1,100</h2>
+      <h2>Pay KES 1,000</h2>
 
       {/* QR Code */}
       <QRCodeCanvas
-        value="https://eeebcd0b1805.ngrok-free.app/pay/1100"
+        value="https://2718-2c0f-2f00-56-f940-61b0-c123-f56-f087.ngrok-free.app/pay/1100"
         size={220}
       />
 
@@ -57,7 +57,7 @@ export default function QRCodePage() {
         disabled={loading}
         style={styles.button}
       >
-        {loading ? "Processing..." : "Pay KES 1,100"}
+        {loading ? "Processing..." : "Pay KES 1000"}
       </button>
 
       {/* Status Message */}

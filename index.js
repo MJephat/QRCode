@@ -8,9 +8,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
-  origin: "*"
-}));
+app.use(cors())
 app.use(express.json()); // ✅ REQUIRED
 app.use(express.urlencoded({ extended: true }));
 
@@ -41,7 +39,8 @@ app.get("/pay/1100", (req, res) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pay KES 1,100</title>
+        <title>Pay KES 1,000</title>
+        <title>Kitty Classic at Muthaiga</title>
         <style>
           body {
             margin: 0;
@@ -115,7 +114,8 @@ app.get("/pay/1100", (req, res) => {
 
       <body>
         <div class="card">
-          <h2>Pay KES 1,100</h2>
+          <h3>Pay KES 1,000</h3>
+          <h3>Kitty Classic at Muthaiga</h3>
           <p>Enter your M-Pesa number to continue</p>
 
           <form method="POST" action="/pay/1100">
@@ -178,7 +178,7 @@ app.post("/pay/1100", async (req, res) => {
         PartyB: process.env.SHORTCODE,
         PhoneNumber: normalizePhone(phone),
         CallBackURL: process.env.CALLBACK_URL,
-        AccountReference: "QR-PAYMENT",
+        AccountReference: "Kitty Classic",
         TransactionDesc: "KES 1100 Payment"
       },
       {
@@ -202,7 +202,7 @@ app.post("/pay/1100", async (req, res) => {
 });
 
 // 🚀 Start server
-const PORT = 3000;
+const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
